@@ -39,6 +39,10 @@ jobs:
       - name: Push Frontend Image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/angular-app:latest
 
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install docker-compose -y
       #Test with Docker Compose
       - name: Run Docker Compose
         run: |
